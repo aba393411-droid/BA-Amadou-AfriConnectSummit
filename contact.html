@@ -4,9 +4,316 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AfriConnectSummit</title>
+     <!--Bootstap Icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--css-->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+      <header>
+        <nav class="navbar">
+            <div class="logo">
+AfriConnectSummit 2026
+            </div>
+<ul class="nav-links">
+<li><a href="index.html" class="active">Accueil</a>
+</li>
+<li><a href="progamme.html" >Programme</a></li>
+<li><a href="intervenants.html">Intervenants</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<button id="theme-toggle"
+aria-label="changer de thème">
+<i class="bi bi-moon-fil"></i>
+</button>
+<div class="hamburger">
+<i class="bi bi-list"></i>
+</div>
+        </nav>
+    </header>
+    <section class="internal-hero">
+<div class="hero-content">
+<h1>Inscription & Contact</h1>
+</div>
+<nav class="breadcrumb"
+aria-label="fil d'Ariane">
+<ol>
+    <li>
+        <a href="index.html">Accueil</a>
+    </li>
+    <li class="separator"
+    aria-hidden="true">&gt;</li>
+    <li class="current" aria-current="page">Contact</li>
+</ol>
+</nav>
+    </section>
+    <section class="Contact-section">
+<div class="container contact-flex-container">
+<div class="from-wrapper">
+<h2>Réserver votre place</h2>
+<p class="form-instruction">
+Tous les champs marqués d'une étoile (*) sont obligatoires.
+</p>
+
+<div id="success-banner"
+class="from-success-banner" aria-alive="politr"
+style="display:none">
+<i class="bi bi-check-circle-fill"></i>Inscription réussie ! <br>
+un email de confirmation vous a été envoyé.
+</div>
+<form id="registration-form" novalidate>
+<div class="form-group">
+<label for="fullname">Nom
+    Complet *
+</label>
+<input type="text"
+id="fullname" name="fullname" placeholder="Ex: Jean Dupont" required>
+<span class="error-message" id="error-fullmane" aria-live="polite"></span>
+</div>
+<div class="form-group">
+<label for="email">Adress Email *
+</label>
+<input type="email"
+id="email" name="email" placeholder="Ex: Jean.Dupont@gmail.com" required>
+<span class="error-message" id="error-email" aria-live="polite"></span>
+</div>
+<div class="form-group">
+<label for="Phone">Téléphone *
+</label>
+<input type="tel"
+id="Phone" name="Phone" placeholder="Ex: +221 77 000 00 00 " required>
+<span class="error-message" id="error-phone" aria-live="polite"></span>
+</div>
+<div class="form-group">
+<label for="ticket-type">Type de participation *</label>
+<select  id="ticket-type"
+name="ticket-type" required>
+<option value="disabled selected">--Choisir une option --</option>
+<option value="standard">Standard - Accès complet & Networking</option>
+<option value="student">Etudiant - Tarif réduit ( sur justificatif)</option>
+</select>
+<span class="error-message"
+id="error-ticket" aria-live="polite"></span>
+</div>
+
+<div class="form-group">
+    <label for="country">Pays d'origine*</label>
+    <select name="country" id="country" required>
+        <option value="disabled selected">--choisir un pays--</option>
+        <option value="SN">Sénégal</option>
+        <option value="CI">Code d'Ivroire</option>
+        <option value="MA">Maroc</option>
+        <option value="CM">Cameroun</option>
+        <option value="TG">Togo</option>
+        <option value="BJ">Benin</option>
+        <option value="BF">Boukina Faso</option>
+        <option value="ML">Mali</option>
+        <option value="GA">Gabon</option>
+        <option value="CD">RDC
+            (République Démocratique du Congo)
+        </option>
+    </select>
+    <span class="error-message" id="error-country" aria-alive="polite"></span>
+</div>
+<div class="form-group">
+    <label for="Motivation">Lettre de motivation ou Message*</label>
+<textarea name="motivation" id="motivation" rows="6" placeholder="Pourquoi souhaitez-vous participer à l'AfriConnectSummit 
+2026? (Minimum 20 caractères)" required></textarea>
+<span class="error-message"
+id="error-motivation" aria-live="polite"></span>
+</div>
+<button type="submit" class="btn btn-submit">Valider mon inscription</button>
+</form>
+</div>
+<div class="info-wrapper">
+    <h2>Nous Contacter</h2>
+    <p class="info-intro">Une question <br>
+    spécifique ou une demande de partenariat ? <br>
+N'hésitez pas à nous écrire directement ou à nous rendre visite</p>
+
+<div class="info-details">
+    <div class="info-item">
+<div class="info-icon">
+<i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+</div>
+<div>
+    <h3>Lieu de l'événement</h3>
+    <p>Centre International <br>de conférences Abdou Diouf (CICAD), Dakar,<br>
+    Sénégal</p>
+</div>
+    </div>
+    <div class="info-item">
+        <div class="info-icon">
+<i class="bi bi-envelope-fill"
+aria-hidden="true"></i>
+        </div>
+        <h3>Adress Email</h3>
+        <p><a href="mailto:contact@africonnectsummit.com">contact@africonnectsummit.com</a></p>
+    </div>
+</div>
+<div class="info-item">
+<div class="info-icon">
+<i class="bi bi-telephone-fill"
+aria-hidden="true"></i>
+</div>
+<div>
+    <h3>Téléphone</h3>
+    <p><a href="tel:+221330000000">+22133 000 00 00</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+    </section>
+    <section class="faq-section">
+<div class="container">
+<h2 class="section-title">
+    Question Freéquentes
+</h2>
+<p class="section-subtitle">
+    Tout ce que <br>
+    vous devez sur le Sommet
+</p>
+<div class="faq-accordion">
+    <div class="faq-item">
+<input type="checkbox"
+id="faq-q1" class="faq-checkbox">
+<label for="faq-q1"
+class="faq-header">
+<span>Quels sont les modes de paiement acceptés ?</span>
+<i class="bi bi-chevron-down icon-arrow"></i>
+</label>
+<div class="faq-body">
+<p>
+    Nous acceptions les <br>
+    paiement par Carte Bancaire (Visa,Mastercard),<br>
+    Mobile Money (Wave ,Orange Money, MTN Mobile ) <br>
+    et par virement bancaire sur facture pour <br>
+    les entreprises.
+</p>
+</div>
+    </div>
+
+    <div class="faq-item">
+<input type="checkbox"
+id="faq-q2" checkedfaq-checkbox>
+<label for="faq-q2"
+class="faq-header">
+<span>Le billet d'avion et <br>
+    l'hotel sont-ils pris en charge ?
+</span>
+<i class="bi bi-chevron-down icon-arrow"></i>
+</label>
+<div class="faq-body">
+<p>Non , l'achat du pass <br>
+d'accès comprend uniquement l'entrée aux <br>
+conférences, aux ateliers et aux cocktails de <br>
+réseautage selon votre formul. le transport et  <br>
+l'hébergement restent à votre charge .</p>
+</div>
+    </div>
+
+    <div class="faq-item">
+<input type="checkbox"
+id="faq-q3" class="faq-checkbox">
+<label for="faq-q3"
+class="faq-header">
+<span>Puise-je obtenir un certificat de participation ?</span>
+<i class="bi bi-chevron-down
+icon-arrow"></i>
+</label>
+<div class="faq-body">
+<p>Oui , un certificat officiel de participation signé par <br>
+le le comité d'organisation vous sera envoyé par email au <br>
+au format numérique sous 5 jours ouvrés aprés la cloture de l'év"nement.</p>
+</div>
+    </div>
+</div>
+<div class="faq-item">
+<input type="checkbox"
+id="faq-q4" class="faq-checkbox">
+<label for="faq-q4"
+class="faq-header">
+<span>L'événement est-il <br>
+accéssible aux personnes à mobilité réduite ?</span>
+<i class="bi bi-chevron-down
+icon-arrow"></i>
+</label>
+<div class="faq-body">
+<p>Tout à fait. Les infrastructures du CICAD à Dakar répondent <br>
+strictement aux normes d'accessibilité Internationales pour garantir un accés <br>
+confortable à tous nos participants
+</p>
+</div>
+</div>
+<div class="faq-item">
+<input type="checkbox"
+id="faq-q5" class="faq-checkbox">
+<label for="faq-q5"
+class="faq-header">
+<span>Puis-je annuler ou transférer mon billet à un collégue ?</span>
+<i class="bi bi-chevron-down
+icon-arrow"></i>
+</label>
+<div class="faq-body">
+<p>Les billets sont non-remboursables. En revanche,vous pouvez <br>
+transférer votre inscription gratuitement à un tiers jusqu'à <br>
+72 heures avant le début de l'évenement en écrivant à notre support.</p>
+</div>
+</div>
+</div>
+</div>
+    </section>
+    <section class="map-section">
+<div class="map-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.957771746777!2d-17.228945823971206!3d14.715017685784948!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0xec1bc7eb7d3e091%3A0xe5435967ee7933f4!2sCICAD%20-%20Centre%20International%20de%20Conf%C3%A9rences%20Abdou%20Diouf!5e0!3m2!1sfr!2ssn!4v1715000000000!5m2!1sfr!2ssn" 
+            width="100%" 
+            height="450"
+            allowfullscreen=""
+            loading="lazy"
+            frameborder="0"></iframe>
+</div>
+    </section>
+     <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+<h4>AfriConnect Summit</h4>
+<p>
+    Le carrefour technologique panafricain <br>
+    incontournable
+</p>
+            </div>
+
+            <div class="footer-socials">
+<h4>
+    Suivez-nous
+</h4>
+<div class="social-links">
+<a href="#">
+    <i class="bi bi-twitter-x"></i>
+</a>
+<a href="#">
+    <i class="bi bi-linkdin"></i>
+</a>
+<a href="#">
+    <i class="bi bi-youtube"></i>
+</a>
+</div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+<p>
+   &copy; <span id="year"></span>
+    AfriConnect Summit.Tous droits <br>
+    réservés
+</p>
+        </div>
+
+        <button class="scroll-top">
+<i class="bi bi-arrow-up-short"></i>
+        </button>
+    </footer>
     <script src="js/main.js"></script>
 </body>
 </html>

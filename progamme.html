@@ -4,9 +4,376 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AfriConnectSummit</title>
+     <!--Bootstap Icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!--css-->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+      <header>
+        <nav class="navbar">
+            <div class="logo">
+AfriConnectSummit 2026
+            </div>
+<ul class="nav-links">
+<li><a href="index.html" class="active">Accueil</a>
+</li>
+<li><a href="progamme.html" >Programme</a></li>
+<li><a href="intervenants.html">Intervenants</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<button id="theme-toggle"
+aria-label="changer de thème">
+<i class="bi bi-moon-fil"></i>
+</button>
+<div class="hamburger">
+<i class="bi bi-list"></i>
+</div>
+        </nav>
+    </header>
+    <main>
+        <section class="internal-hero">
+<div class="hero-content">
+<h1>Programme de l'événement</h1>
+<nav class="breadcrumb" aria-label="fil d'Ariane">
+<ol>
+    <li><a href="index.html">Accueil</a></li>
+    <li class="separator" aria-hidden="true">&gt;</li>
+    <li class="current" aria-current="page">Programme</li>
+</ol>
+</nav>
+</div>
+        </section>
+
+        <section class="shedule-section">
+<div class="container">
+<div class="tabs-container"
+role="tablist" aria-label="Planning par jour">
+<button class="tab-btn active"
+role="tab" aria-selected="true"
+aria-controls="day1-panel" id="day1-tab"
+data-day="day1">
+Jour 1 <span class="tab-date">15 Oct</span>
+</button>
+<button class="tab-btn" role="tab"
+aria-selected="false" aria-controls="day2-panel"
+id="day2-tab" data-day="day2" tabindex="-1">
+Jour 2 <span class="tab-date">16 Oct</span>
+</button>
+<button class="tab-btn" role="tab"
+aria-selected="false" aria-controls="day3-panel"
+id="day3-tab" data-day="day3" tabindex="-1">
+Jour 3 <span class="tab-date">17 Oct</span>
+</button>
+</div>
+
+<div id="day1-panel" class="tab-content active"
+role="tabpanel"
+aria-labelledby="day1-tab">
+<div class="table-responsive">
+<table class="program-table">
+<thead>
+    <tr>
+        <th scope="col">Heure</th>
+        <th scope="col">Session </th>
+        <th scope="col">Intervenant</th>
+        <th scope="col">Salle</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td
+        class="time-col">08:30 - 09:30</td>
+        <td 
+        class="session-title">Accueil des participants & <br>
+    Enregistrement</td>
+    <td>
+        L'équipe d'organisation
+    </td>
+    <td>
+        Hall Principal
+    </td>
+    </tr>
+    <tr>
+        <td 
+        class="time-col">09:30 - 11:00</td>
+        <td class="session-title">
+Keynote d'ouverture : Le <br>
+Web souverai africain
+        </td>
+        <td>Dr. Amadou Ba</td>
+        <td>Amphithéatre Kédougou</td>
+    </tr>
+    <tr>
+        <td
+        class="time-col">11:30 - 13:00</td>
+        <td
+        class="session-title">Panel : Révolution Web <br>
+    Mobile & Eco-conception</d>
+    <td>Fatou Diop, Kofi Mensah</td>
+    <td>Salle fouta</td>
+    </tr>
+    <tr>
+        <td
+        class="time-col">14:30 - 16:00</td>
+        <td
+        class="session-title">Workshop : Optimisation <br>
+    des performances Javascript</td>
+    <td>Sammuel Mensah</td>
+    <td>Lab Tech 1</td>
+    </tr>
+    <tr>
+        <td
+        class="time-col">16:30 - 18:00</td>
+        <td
+        class="session-title">Table ronde : Financement <br>des startups Tech</td>
+        <td>Seynabou Ndiaye,Investor Group</td>
+        <td>Amphithéatre Kédougou</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="day2-panel" class="tab-content"
+role="tabpanel" aria-labelledby="day2-tab"
+hidden>
+
+<div class="table-responsive">
+<table class="program-table">
+<thead>
+    <tr>
+        <th
+        scope="col">Heure</th>
+        <th
+        scope="col">Session</th>
+        <th
+        scope="col">Intervenant</th>
+        <th
+        scope="col">Salle</th>
+    </tr>
+</thead>
+<tbody>
+  <tr>
+    <td
+    class="time-col">09:00 - 10:30</td>
+    <td
+    class="session-title">Conférence : L'impact de <br>
+l'IA sur le développement local</td>
+<td>
+    Ibrahoma Koné
+</td>
+<td>Amphithéatre Kédougou</td>
+  </tr>  
+  <tr>
+    <td
+    class="time-col">11:00 - 12:30</td>
+    <td
+    class="session-title">Masterclass : UI/UX <br>
+adaptée aux débits mobiles réduits</td>
+<td>Amina Sow</td>
+<td>Salle Fatou</td>
+  </tr>
+  <tr>
+    <td
+    class="time-col">14:00 - 15:30</td>
+    <td
+    class="session-title">Session pratique : API Web <br>modernes et PWA</td>
+    <td>Chinedu Okafor</td>
+    <td>Lab Tech 2</td>
+  </tr>
+  <tr>
+    <td 
+    class="time-col">16:00 - 17:30</td>
+    <td
+    class="session-title">Panel : Cloud Computing et <br>
+infrastructures régionales</td>
+<td>Moussa Traoré, Elena Gomez</td>
+<td>Salle Casamane</td>
+  </tr>
+  <tr>
+    <td
+    class="time-col">17:40 - 19:00</td>
+    <td
+    class="session-title">Pitch contest :Les innovations Web de l'année</td>
+    <td>Finalistes sélectionnés</td>
+    <td>Amphithéatre Kédougou
+
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="day3-panel" class="tab-content"
+role="tabpanel" aria-labelledby="day3-tab"
+hidden>
+
+<div class="table-responsive">
+<table class="program-table">
+<thead>
+    <tr>
+        <th
+        scope="col">Heure</th>
+        <th
+        scope="col">Session</th>
+        <th
+        scope="col">Intervenant</th>
+        <th
+        scope="col">Salle</th>
+    </tr>
+</thead>
+<tbody>
+  <tr>
+    <td
+    class="time-col">09:30 - 11:00</td>
+    <td
+    class="session-title">Keynote : Cybersécurité et <br>
+protection des données</td>
+<td>
+    Youssouf Ndiaye
+</td>
+<td>Amphithéatre
+
+</td>
+  </tr>  
+  <tr>
+    <td
+    class="time-col">11:30 - 13:00</td>
+    <td
+    class="session-title">Atelier : <br>
+Décentralisation, Web3 et opportunités</td>
+<td>Amina Sow</td>
+<td>Lab Tech 1</td>
+  </tr>
+  <tr>
+    <td
+    class="time-col">14:30 - 16:00</td>
+    <td
+    class="session-title">Restitution des travaux de <br>
+recherche & Livre blanc</td>
+    <td>Comité Scientifique</td>
+    <td>Salle Fatou</td>
+  </tr>
+  <tr>
+    <td 
+    class="time-col">16:15 - 17:30</td>
+    <td
+    class="session-title">Keynote de cloture & <br>
+Remise des trophées</td>
+<td>Ministère du Numérique & Partenaire</td>
+<td>Amphithéatre Kédougou</td>
+  </tr>
+  <tr>
+    <td class="time-col">17:30 - 20:00</td>
+    <td class="session-title">Cocktail de réseautage & <br>Soirée de gala</td>
+    <td>Tous les participants</td>
+    <td>Jardins du centre</td>
+  </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+        </section>
+        <section class="themes-section scroll-animate">
+<div class="container">
+<h2 class="section-title">
+Les Grand Thématiqueq
+</h2>
+<p class="section-subtitle">Découvrez <br>
+les piliers de cette édition 2026</p>
+<div class="themes-grid-2x2">
+<article class="theme-card">
+<div class="theme-icon-box">
+<i class="bi bi-cpu"
+aria-hidden="true"></i>
+</div>
+<h3>Intelligence Artificielle</h3>
+<p>Analyse des modèles de <br>
+langage adaptés aux langues locales et des <br>
+infrastructures de calcul émergentes sur le <br>
+continent.</p>
+</article>
+<article class="theme-card">
+<div class="theme-icon-box">
+<i class="bi bi-wallet2"
+aria-hidden="true"></i>
+</div>
+<h3> Fintech & Web3</h3>
+<p> Exploration des innovations <br>
+    de paiement mobile, de l'inclusion financière <br>
+    par le code et de la Décentralisation des <br>
+    devises
+</p>
+</article>
+<article class="theme-card">
+<div class="theme-icon-box">
+<i class="bi bi-code-slash"
+aria-hidden="true"></i>
+</div>
+<h3>Architecture Web Moderne</h3>
+<p>Focus sur la performance <br>
+    brute, les progrssive Web Apps (PWA) <br>
+    l'accessibilité universelle et l'éco-conception <br>
+    logicielle.
+</p>
+</article>
+<article class="theme-card">
+<div class="theme-icon-box">
+<i class="bi bi-globe-africa"
+aria-hidden="true"></i>
+</div>
+<h3>Tech durable & Green IT</h3>
+<p>Comment concevoir des <br>
+services numériques sobres énergétiquement et <br>
+optimisés pour les terminaux à faible <br>ressources.</p>
+</article>
+</div>
+</div>
+        </section>
+         <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+<h4>AfriConnect Summit</h4>
+<p>
+    Le carrefour technologique panafricain <br>
+    incontournable
+</p>
+            </div>
+
+            <div class="footer-socials">
+<h4>
+    Suivez-nous
+</h4>
+<div class="social-links">
+<a href="#">
+    <i class="bi bi-twitter-x"></i>
+</a>
+<a href="#">
+    <i class="bi bi-linkdin"></i>
+</a>
+<a href="#">
+    <i class="bi bi-youtube"></i>
+</a>
+</div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+<p>
+    &copy; <span id="year"></span>
+    AfriConnect Summit.Tous droits <br>
+    réservés
+</p>
+        </div>
+
+        <button class="scroll-top">
+<i class="bi bi-arrow-up-short"></i>
+        </button>
+    </footer>
+    </main>
      <script src="js/main.js"></script>
 </body>
+
 </html>

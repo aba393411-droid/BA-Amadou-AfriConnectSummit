@@ -6,6 +6,9 @@
     <title>AfriConnectSummit</title>
      <!--Bootstap Icon-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
     <!--css-->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -18,7 +21,7 @@ AfriConnectSummit 2026
 <ul class="nav-links">
 <li><a href="index.html" class="active">Accueil</a>
 </li>
-<li><a href="progamme.html" >Programme</a></li>
+<li><a href="programme.html" >Programme</a></li>
 <li><a href="intervenants.html">Intervenants</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
@@ -56,7 +59,7 @@ Tous les champs marqués d'une étoile (*) sont obligatoires.
 </p>
 
 <div id="success-banner"
-class="from-success-banner" aria-alive="politr"
+class="from-success-banner" aria-alive="polite"
 style="display:none">
 <i class="bi bi-check-circle-fill"></i>Inscription réussie ! <br>
 un email de confirmation vous a été envoyé.
@@ -68,7 +71,7 @@ un email de confirmation vous a été envoyé.
 </label>
 <input type="text"
 id="fullname" name="fullname" placeholder="Ex: Jean Dupont" required>
-<span class="error-message" id="error-fullmane" aria-live="polite"></span>
+<span class="error-message" id="error-fullname" aria-live="polite"></span>
 </div>
 <div class="form-group">
 <label for="email">Adress Email *
@@ -88,7 +91,7 @@ id="Phone" name="Phone" placeholder="Ex: +221 77 000 00 00 " required>
 <label for="ticket-type">Type de participation *</label>
 <select  id="ticket-type"
 name="ticket-type" required>
-<option value="disabled selected">--Choisir une option --</option>
+<option value="disabled selected">-- Choisir une option --</option>
 <option value="standard">Standard - Accès complet & Networking</option>
 <option value="student">Etudiant - Tarif réduit ( sur justificatif)</option>
 </select>
@@ -99,14 +102,14 @@ id="error-ticket" aria-live="polite"></span>
 <div class="form-group">
     <label for="country">Pays d'origine*</label>
     <select name="country" id="country" required>
-        <option value="disabled selected">--choisir un pays--</option>
+        <option value="disabled selected">-- choisir un pays --</option>
         <option value="SN">Sénégal</option>
-        <option value="CI">Code d'Ivroire</option>
+        <option value="CI">Cote d'Ivroire</option>
         <option value="MA">Maroc</option>
         <option value="CM">Cameroun</option>
         <option value="TG">Togo</option>
         <option value="BJ">Benin</option>
-        <option value="BF">Boukina Faso</option>
+        <option value="BF">Burkina Faso</option>
         <option value="ML">Mali</option>
         <option value="GA">Gabon</option>
         <option value="CD">RDC
@@ -168,7 +171,7 @@ aria-hidden="true"></i>
     <section class="faq-section">
 <div class="container">
 <h2 class="section-title">
-    Question Freéquentes
+    Question Fréquentes
 </h2>
 <p class="section-subtitle">
     Tout ce que <br>
@@ -185,7 +188,7 @@ class="faq-header">
 </label>
 <div class="faq-body">
 <p>
-    Nous acceptions les <br>
+    Nous acceptons les <br>
     paiement par Carte Bancaire (Visa,Mastercard),<br>
     Mobile Money (Wave ,Orange Money, MTN Mobile ) <br>
     et par virement bancaire sur facture pour <br>
@@ -196,7 +199,7 @@ class="faq-header">
 
     <div class="faq-item">
 <input type="checkbox"
-id="faq-q2" checkedfaq-checkbox>
+id="faq-q2" checked class="faq-checkbox">
 <label for="faq-q2"
 class="faq-header">
 <span>Le billet d'avion et <br>
@@ -225,7 +228,7 @@ icon-arrow"></i>
 <div class="faq-body">
 <p>Oui , un certificat officiel de participation signé par <br>
 le le comité d'organisation vous sera envoyé par email au <br>
-au format numérique sous 5 jours ouvrés aprés la cloture de l'év"nement.</p>
+au format numérique sous 5 jours ouvrés aprés la cloture de l'évenement.</p>
 </div>
     </div>
 </div>
@@ -293,7 +296,7 @@ transférer votre inscription gratuitement à un tiers jusqu'à <br>
     <i class="bi bi-twitter-x"></i>
 </a>
 <a href="#">
-    <i class="bi bi-linkdin"></i>
+    <i class="bi bi-linkedin"></i>
 </a>
 <a href="#">
     <i class="bi bi-youtube"></i>

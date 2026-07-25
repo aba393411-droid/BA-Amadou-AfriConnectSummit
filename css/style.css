@@ -1,0 +1,210 @@
+/*
+====================================
+VARIABLES & CONFIGURATION GLOBALE
+====================================
+*/
+:root {
+    --primary-color:#0f172a;
+    --secondary-color:#0284c7;
+    --accent-color:#f59e0b;
+    --bg-color:#f8fafc;
+    --text-color:#334155;
+    --card-bg:#ffffff;
+    --border-color:#e2e8f0;
+    --font-heading:'outfit',
+    sans-serif;
+    --font-body:'Inter' , sans-serif;
+    --transition:all 0.3s ease;
+    --radius:12px;
+}
+[data-theme= "dark"] {
+    --primary-color:#f8fafc;
+    --secondary-color:#38bdf8;
+    --accent-color:#fbbf24;
+    --bg-color:#0f172a;
+    --text-color:#cbd5e1;
+    --card-bg:#1e293b;
+    --border-color:#334155;
+}
+/*RESET & BASE*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+ul{
+    list-style: none;
+}
+
+/*
+========================================
+NAVBAR FIXE & RESPONSIVE
+========================================
+*/
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    background-color: var(--card-bg);
+    border-bottom: 1px solid
+    var(--border-color);
+    z-index: 1000;
+    transition: var(--transition);
+}
+.logo{
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+.nav-links{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a{
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover ,
+.nav-links a.active{
+    color: var(--secondary-color);
+}
+
+#theme-toggle,
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: var(--secondary-color);
+}
+.hamburger{
+    display: none;
+}
+/*
+======================================
+HERO SECTION
+======================================
+*/
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    background: linear-gradient(
+        rgba(15, 23, 42, 0.7),
+        rgba(15, 23, 42, 0.7)
+    ),
+
+    url('https: //image .unsplash .com/photo -1540575467063-178a50c2df87?w=1200')
+    no-repeat center center/cover;
+    color: #ffffff;
+}
+.hero-content h1{
+    font-family:var(--font-heading) ;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+}
+
+.hero-date {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+}
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+.btn {
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: var(--transition);
+    display: inline-block;
+}
+.btn-primary {
+    background-color: var(--secondary-color);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-2);
+}
+/*
+===============================
+COMPTE A REBOURS
+===============================
+*/
+
+.countdown-container {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+.countdown-item {
+    background: rgba(255, 255, 255,
+    0.1);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    border-radius: var(--radius);
+    min-width: 80px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.countdown-item span {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    display: block;
+}
+.countdown-item p{
+    font-size: 0.85rem;
+    text-decoration: uppercase;
+}
+
+/*
+===================================
+MEDIA QUERIES RESPONSIVE
+===================================
+*/
+@media(max-width:768px){
+    .nav-links{
+        display: none;
+    }
+    .hamburger{
+        display: block;
+    }
+    .countdown-container{
+        gap: 0.5rem;
+    }
+    .countdown-item{
+        min-width: 65px;
+        padding: 0.5rem;
+    }
+}

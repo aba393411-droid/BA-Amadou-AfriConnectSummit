@@ -208,3 +208,253 @@ MEDIA QUERIES RESPONSIVE
         padding: 0.5rem;
     }
 }
+
+
+
+
+
+/*
+===============================
+SECTION CHIFFRES CLES (GRID)
+===============================
+*/
+.stats-section {
+    padding: 5rem 5%;
+    background-color: var(--card-bg);
+    border-top: 1px  solid
+    var(--border-color);
+    border-bottom: 1px solid
+    var(--border-color);
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+.stats-card h3{
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+.stats-card p {
+    color: var(--text-color);
+    font-weight: 500;
+}
+/*
+===========================
+SECTION BENEFICES ()FLEXBOOX
+===========================
+*/
+.benefits-section {
+    padding: 6rem 5%;
+    text-align: center;
+}
+.benefits-section h2 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+.benefits-flex {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.benefits-card {
+    background-color: var(--card-bg);
+    border: 1px solid
+    var(--border-color);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius);
+    flex: 1;
+    min-width: 280px;
+    max-height: 350px;
+    text-align: left;
+    transition: var(--transition);
+}
+.benefits-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+.benefits-icon{
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+.benefits-card h3{
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+/*
+================================
+SECTION INTERVENANTS VEDETTES
+(GRID)
+================================
+*/
+.featured-speakers{
+    padding: 6rem 5%;
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+}
+.featured-speakers h2{
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+.speakers-preview-grid {
+    display: grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)) ;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+.speaker-card{
+    background-color: var(--bg-color);
+    border: 1px solid
+    var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+}
+.speaker-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+.speaker-img-wrapper{
+    height: 280px;
+    overflow: hidden;
+}
+.speaker-img-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+.speaker-card:hover .speaker-img-wrapper img{
+    transform: scale(1.05);
+}
+.speaker-card h3{
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    padding: 1.2rem 1.2rem 0.3rem 1.2rem;
+    color: var(--primary-color);
+}
+.speaker-role {
+    padding: 0 1.2rem;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+.speaker-country{
+    padding: 0.5rem 1.2rem 1.2rem 1.2rem;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+.center-btn{
+    text-align: center;
+}
+.btn-outline{
+    border: 2px solid
+    var(--secondary-color);
+    color: var(--secondary-color);
+    background: transparent;
+}
+.btn-outline:hover{
+    background-color: var(--secondary-color);
+    color: #ffffff;
+}
+/*
+========================================
+SECTION SPONSORS & FOOTER
+========================================
+*/
+.sponsors-section {
+    padding: 6rem 5%;
+    text-align: center;
+}
+.sponsors-section h2{
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+.sponsors-tier{
+    margin-bottom: 2.5rem;
+}
+.sponsors-tier h3 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.logos-container{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+.sponsor-logo{
+    background-color: var(--card-bg);
+    border: 1px solid
+    var(--border-color);
+    padding: 1rem 2rem;
+    border-radius: 600;
+    color: var(--text-color);
+}
+footer{
+    background-color: var(--primary-color);
+    color: #f8fafc;
+    padding: 4rem 5% 2rem 5%;
+}
+.footer-grid{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 1.2rem;
+}
+.footer-about h4,
+.footer-socials h4{
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+.footer-about p{
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
+.social-links{
+    display: flex;
+    gap: 1rem;
+    font-size: 1.25rem;
+}
+.social-links a {
+    background: rgba(255, 255, 255,
+        0.1);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: var(--transition);
+}
+.social-links a:hover {
+    background-color: var(--secondary-color);
+}
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255,
+            0.1);
+    font-size: 0.9rem;
+    opacity: 0.8; 
+}

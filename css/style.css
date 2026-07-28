@@ -4,36 +4,37 @@ VARIABLES & CONFIGURATION GLOBALE
 ====================================
 */
 :root {
-    --primary-color:#0f172a;
-    --secondary-color:#0284c7;
-    --accent-color:#f59e0b;
-    --bg-color:#f8fafc;
-    --text-color:#334155;
-    --card-bg:#ffffff;
-    --border-color:#e2e8f0;
-    --font-heading:'outfit',
-    sans-serif;
-    --font-body:'Inter' , sans-serif;
-    --transition:all 0.3s ease;
-    --radius:12px;
+    --primary-color: #0f172a;
+    --secondary-color: #0284c7;
+    --accent-color: #f59e0b;
+    --bg-color: #f8fafc;
+    --text-color: #334155;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition: all 0.3s ease;
+    --radius: 12px;
 }
-[data-theme= "dark"] {
-    --primary-color:#f8fafc;
-    --secondary-color:#38bdf8;
-    --accent-color:#fbbf24;
-    --bg-color:#0f172a;
-    --text-color:#cbd5e1;
-    --card-bg:#1e293b;
-    --border-color:#334155;
+
+[data-theme="dark"] {
+    --primary-color: #f8fafc;
+    --secondary-color: #38bdf8;
+    --accent-color: #fbbf24;
+    --bg-color: #0f172a;
+    --text-color: #cbd5e1;
+    --card-bg: #1e293b;
+    --border-color: #334155;
 }
+
 /*RESET & BASE*/
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: var(--font-body);
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -41,11 +42,12 @@ body{
     transition: var(--transition);
 }
 
-a{
+a {
     text-decoration: none;
     color: inherit;
 }
-ul{
+
+ul {
     list-style: none;
 }
 
@@ -54,7 +56,7 @@ ul{
 NAVBAR FIXE & RESPONSIVE
 ========================================
 */
-.navbar{
+.navbar {
     position: fixed;
     top: 0;
     left: 0;
@@ -64,30 +66,31 @@ NAVBAR FIXE & RESPONSIVE
     align-items: center;
     padding: 1.2rem 5%;
     background-color: var(--card-bg);
-    border-bottom: 1px solid
-    var(--border-color);
+    border-bottom: 1px solid var(--border-color);
     z-index: 1000;
     transition: var(--transition);
 }
-.logo{
+
+.logo {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 1.2rem;
     color: var(--primary-color);
 }
-.nav-links{
+
+.nav-links {
     display: flex;
     gap: 2rem;
     align-items: center;
 }
 
-.nav-links a{
+.nav-links a {
     font-weight: 500;
     transition: var(--transition);
 }
 
-.nav-links a:hover ,
-.nav-links a.active{
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--secondary-color);
 }
 
@@ -99,9 +102,11 @@ NAVBAR FIXE & RESPONSIVE
     cursor: pointer;
     color: var(--secondary-color);
 }
-.hamburger{
+
+.hamburger {
     display: none;
 }
+
 /*
 ======================================
 HERO SECTION
@@ -118,13 +123,12 @@ HERO SECTION
         rgba(15, 23, 42, 0.7),
         rgba(15, 23, 42, 0.7)
     ),
-
-    url('../images/k.avif')
-    no-repeat center center/cover;
+    url('../images/k.avif') no-repeat center center/cover;
     color: #ffffff;
 }
-.hero-content h1{
-    font-family:var(--font-heading) ;
+
+.hero-content h1 {
+    font-family: var(--font-heading);
     font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 1rem;
 }
@@ -134,6 +138,7 @@ HERO SECTION
     margin-bottom: 2rem;
     color: var(--accent-color);
 }
+
 .hero-buttons {
     display: flex;
     gap: 1rem;
@@ -141,6 +146,7 @@ HERO SECTION
     margin-bottom: 3rem;
     flex-wrap: wrap;
 }
+
 .btn {
     padding: 0.8rem 1.5rem;
     border-radius: var(--radius);
@@ -148,6 +154,7 @@ HERO SECTION
     transition: var(--transition);
     display: inline-block;
 }
+
 .btn-primary {
     background-color: var(--secondary-color);
     color: #ffffff;
@@ -155,37 +162,39 @@ HERO SECTION
 
 .btn-primary:hover {
     opacity: 0.9;
-    transform: translateY(-2);
+    transform: translateY(-2px);
 }
+
 /*
 ===============================
 COMPTE A REBOURS
 ===============================
 */
-
 .countdown-container {
     display: flex;
     gap: 1.5rem;
     justify-content: center;
 }
+
 .countdown-item {
-    background: rgba(255, 255, 255,
-    0.1);
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     padding: 1rem;
     border-radius: var(--radius);
     min-width: 80px;
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
 .countdown-item span {
     font-family: var(--font-heading);
     font-size: 1.75rem;
     font-weight: 700;
     display: block;
 }
-.countdown-item p{
+
+.countdown-item p {
     font-size: 0.85rem;
-    text-decoration: uppercase;
+    text-transform: uppercase;
 }
 
 /*
@@ -193,25 +202,21 @@ COMPTE A REBOURS
 MEDIA QUERIES RESPONSIVE
 ===================================
 */
-@media(max-width:768px){
-    .nav-links{
+@media(max-width: 768px) {
+    .nav-links {
         display: none;
     }
-    .hamburger{
+    .hamburger {
         display: block;
     }
-    .countdown-container{
+    .countdown-container {
         gap: 0.5rem;
     }
-    .countdown-item{
+    .countdown-item {
         min-width: 65px;
         padding: 0.5rem;
     }
 }
-
-
-
-
 
 /*
 ===============================
@@ -221,52 +226,56 @@ SECTION CHIFFRES CLES (GRID)
 .stats-section {
     padding: 5rem 5%;
     background-color: var(--card-bg);
-    border-top: 1px  solid
-    var(--border-color);
-    border-bottom: 1px solid
-    var(--border-color);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
+
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
     text-align: center;
 }
-.stats-card h3{
+
+.stats-card h3 {
     font-family: var(--font-heading);
     font-size: 2.5rem;
     color: var(--secondary-color);
     margin-bottom: 0.5rem;
 }
+
 .stats-card p {
     color: var(--text-color);
     font-weight: 500;
 }
+
 /*
 ===========================
-SECTION BENEFICES ()FLEXBOOX
+SECTION BENEFICES (FLEXBOX)
 ===========================
 */
 .benefits-section {
     padding: 6rem 5%;
     text-align: center;
 }
+
 .benefits-section h2 {
     font-family: var(--font-heading);
     font-size: 2.2rem;
     margin-bottom: 3rem;
     color: var(--primary-color);
 }
+
 .benefits-flex {
     display: flex;
     gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
 }
+
 .benefits-card {
     background-color: var(--card-bg);
-    border: 1px solid
-    var(--border-color);
+    border: 1px solid var(--border-color);
     padding: 2.5rem 2rem;
     border-radius: var(--radius);
     flex: 1;
@@ -275,101 +284,116 @@ SECTION BENEFICES ()FLEXBOOX
     text-align: left;
     transition: var(--transition);
 }
-.benefits-card:hover{
+
+.benefits-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
 }
-.benefits-icon{
+
+.benefits-icon {
     font-size: 2rem;
     color: var(--secondary-color);
     margin-bottom: 1.5rem;
 }
-.benefits-card h3{
+
+.benefits-card h3 {
     font-family: var(--font-heading);
     font-size: 1.25rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
 }
+
 /*
 ================================
-SECTION INTERVENANTS VEDETTES
-(GRID)
+SECTION INTERVENANTS VEDETTES (GRID)
 ================================
 */
-.featured-speakers{
+.featured-speakers {
     padding: 6rem 5%;
     background-color: var(--card-bg);
     border-top: 1px solid var(--border-color);
 }
-.featured-speakers h2{
+
+.featured-speakers h2 {
     font-family: var(--font-heading);
     font-size: 2.2rem;
     text-align: center;
     margin-bottom: 3rem;
     color: var(--primary-color);
 }
+
 .speakers-preview-grid {
     display: grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)) ;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-bottom: 3rem;
 }
-.speaker-card{
+
+.speaker-card {
     background-color: var(--bg-color);
-    border: 1px solid
-    var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius);
     overflow: hidden;
     transition: var(--transition);
 }
-.speaker-card:hover{
+
+.speaker-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
-.speaker-img-wrapper{
+
+.speaker-img-wrapper {
     height: 280px;
     overflow: hidden;
 }
-.speaker-img-wrapper img{
+
+.speaker-img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: var(--transition);
 }
-.speaker-card:hover .speaker-img-wrapper img{
+
+.speaker-card:hover .speaker-img-wrapper img {
     transform: scale(1.05);
 }
-.speaker-card h3{
+
+.speaker-card h3 {
     font-family: var(--font-heading);
     font-size: 1.2rem;
     padding: 1.2rem 1.2rem 0.3rem 1.2rem;
     color: var(--primary-color);
 }
+
 .speaker-role {
     padding: 0 1.2rem;
     font-size: 0.9rem;
     color: var(--secondary-color);
     font-weight: 500;
 }
-.speaker-country{
+
+.speaker-country {
     padding: 0.5rem 1.2rem 1.2rem 1.2rem;
     font-size: 0.85rem;
     color: var(--text-color);
     opacity: 0.8;
 }
-.center-btn{
+
+.center-btn {
     text-align: center;
 }
-.btn-outline{
-    border: 2px solid
-    var(--secondary-color);
+
+.btn-outline {
+    border: 2px solid var(--secondary-color);
     color: var(--secondary-color);
     background: transparent;
 }
-.btn-outline:hover{
+
+.btn-outline:hover {
     background-color: var(--secondary-color);
     color: #ffffff;
 }
+
 /*
 ========================================
 SECTION SPONSORS & FOOTER
@@ -379,15 +403,18 @@ SECTION SPONSORS & FOOTER
     padding: 6rem 5%;
     text-align: center;
 }
-.sponsors-section h2{
+
+.sponsors-section h2 {
     font-family: var(--font-heading);
     font-size: 2.2rem;
     margin-bottom: 3rem;
     color: var(--primary-color);
 }
-.sponsors-tier{
+
+.sponsors-tier {
     margin-bottom: 2.5rem;
 }
+
 .sponsors-tier h3 {
     font-size: 1.1rem;
     color: var(--text-color);
@@ -395,73 +422,76 @@ SECTION SPONSORS & FOOTER
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-.logos-container{
+
+.logos-container {
     display: flex;
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
 }
-.sponsor-logo{
+
+.sponsor-logo {
     background-color: var(--card-bg);
-    border: 1px solid
-    var(--border-color);
+    border: 1px solid var(--border-color);
     padding: 1rem 2rem;
-    border-radius: 600;
+    border-radius: var(--radius);
     color: var(--text-color);
 }
-footer{
+
+footer {
     background-color: var(--primary-color);
     color: #f8fafc;
     padding: 4rem 5% 2rem 5%;
 }
-.footer-grid{
+
+.footer-grid {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 2rem;
     margin-bottom: 1.2rem;
 }
+
 .footer-about h4,
-.footer-socials h4{
+.footer-socials h4 {
     font-family: var(--font-heading);
     margin-bottom: 1rem;
     font-size: 1.2rem;
 }
-.footer-about p{
+
+.footer-about p {
     opacity: 0.8;
     font-size: 0.95rem;
 }
-.social-links{
+
+.social-links {
     display: flex;
     gap: 1rem;
     font-size: 1.25rem;
 }
+
 .social-links a {
-    background: rgba(255, 255, 255,
-        0.1);
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        transition: var(--transition);
+    background: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
 }
+
 .social-links a:hover {
     background-color: var(--secondary-color);
 }
+
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255,
-            0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9rem;
-    opacity: 0.8; 
+    opacity: 0.8;
 }
-
-
-
-
 
 /*
 ======================================
@@ -474,17 +504,18 @@ PAGES INTERNES & HERO INTERNE
         rgba(15, 23, 42, 0.85),
         rgba(15, 23, 42, 0.85)
     ),
-    url('https://image.unsplash.com/photo-1515187029135-18ee286d815b?w=1200')
-        no-repeat center center/cover;
-color: #ffffff;
-text-align: center;
+    url('https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=1200') no-repeat center center/cover;
+    color: #ffffff;
+    text-align: center;
 }
-.internal-hero h1{
+
+.internal-hero h1 {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 1rem;
 }
-.breadcrumb ol{
+
+.breadcrumb ol {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
@@ -492,36 +523,41 @@ text-align: center;
     font-size: 0.95rem;
     opacity: 0.9;
 }
-.bradcrumb .separator{
+
+.breadcrumb .separator {
     margin: 0 0.3rem;
 }
-.breadcrumb a:hover{
+
+.breadcrumb a:hover {
     color: var(--secondary-color);
     text-decoration: underline;
 }
+
 /*
 =================================
-PAGES PROGRAMME & ONGLET
+PAGES PROGRAMME & ONGLETS
 =================================
 */
 .schedule-section {
     padding: 5rem 5%;
 }
-.container{
+
+.container {
     max-width: 1200px;
     margin: 0 auto;
 }
-.tabs-container{
+
+.tabs-container {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-bottom: 3rem;
     flex-wrap: wrap;
 }
+
 .tab-btn {
     background-color: var(--card-bg);
-    border: 1px solid
-    var(--border-color);
+    border: 1px solid var(--border-color);
     color: var(--text-color);
     padding: 0.8rem 1.8rem;
     border-radius: var(--radius);
@@ -529,42 +565,48 @@ PAGES PROGRAMME & ONGLET
     cursor: pointer;
     transition: var(--transition);
 }
+
 .tab-btn.active,
-.tab-btn:hover{
+.tab-btn:hover {
     background-color: var(--secondary-color);
     color: #ffffff;
     border-color: var(--secondary-color);
 }
-.tab-content{
+
+.tab-content {
     display: none;
 }
-.tabs-content.active{
+
+.tab-content.active {
     display: block;
     animation: fadeIn 0.5s ease;
 }
-@keyframes fadeIn{
-    from{
+
+@keyframes fadeIn {
+    from {
         opacity: 0;
         transform: translateY(10px);
     }
-    to{
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 .table-responsive {
     overflow-x: auto;
     background-color: var(--card-bg);
-    border: 1px solid
-    var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
+
 .program-table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
 }
+
 .program-table th,
 .program-table td {
     padding: 1.2rem 1.5rem;
@@ -573,26 +615,29 @@ PAGES PROGRAMME & ONGLET
 
 .program-table th {
     font-family: var(--font-heading);
-    background-color: rgba(0, 0, 0,
-                0.02);
-                color: var(--primary-color);
+    background-color: rgba(0, 0, 0, 0.02);
+    color: var(--primary-color);
 }
-[data-theme="dark"] .program-table th{
-    background-color: rgba(255, 255, 255,
-                    0.02);
-                    color: var(--primary-color);
+
+[data-theme="dark"] .program-table th {
+    background-color: rgba(255, 255, 255, 0.02);
+    color: var(--primary-color);
 }
-.program-table tr:last-child td{
-border-bottom: none;
+
+.program-table tr:last-child td {
+    border-bottom: none;
 }
-.time-col{
+
+.time-col {
     font-weight: 600;
     color: var(--secondary-color);
     white-space: nowrap;
 }
-.session-title{
+
+.session-title {
     font-weight: 500;
 }
+
 /*
 ==============================
 GRILLE THEMATIQUES (GRID)
@@ -601,49 +646,56 @@ GRILLE THEMATIQUES (GRID)
 .themes-section {
     padding: 5rem 5%;
     background-color: var(--card-bg);
-    border-top: 1px solid
-    var(--border-color);
+    border-top: 1px solid var(--border-color);
 }
-.section-title{
+
+.section-title {
     font-family: var(--font-heading);
     font-size: 2.2rem;
     text-align: center;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
-.themes-subtitle{
+
+.themes-subtitle {
     text-align: center;
     color: var(--text-color);
     opacity: 0.8;
     margin-bottom: 3rem;
 }
-.themes-grid-2x2{
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px 1fr));
-gap: 2rem;
+
+.themes-grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
 }
+
 .theme-card {
     background-color: var(--bg-color);
-    border: 1px solid
-    var(--border-color);
+    border: 1px solid var(--border-color);
     padding: 2.5rem;
+    border-radius: var(--radius);
     transition: var(--transition);
 }
-.theme-card:hover{
+
+.theme-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
-.theme-icon-box{
+
+.theme-icon-box {
     font-size: 2rem;
     color: var(--secondary-color);
     margin-bottom: 1.5rem;
 }
-.theme-card h3{
-    font-family: var(--secondary-color);
+
+.theme-card h3 {
+    font-family: var(--font-heading);
     font-size: 1.25rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
 }
+
 /*
 ================================
 FILTRES INTERVENANTS
@@ -652,52 +704,61 @@ FILTRES INTERVENANTS
 .filters-section {
     padding: 3rem 5% 1rem;
 }
-.filters-container{
+
+.filters-container {
     display: flex;
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
 }
-.filter-btn{
+
+.filter-btn {
     background-color: var(--card-bg);
-    border: 1px solid
-    var(--border-color);
+    border: 1px solid var(--border-color);
     color: var(--text-color);
     padding: 0.6rem 1.4rem;
     border-radius: var(--radius);
     font-weight: 500;
     transition: var(--transition);
+    cursor: pointer;
 }
+
 .filter-btn.active,
-.filter-btn:hover{
+.filter-btn:hover {
     background-color: var(--secondary-color);
     color: #ffffff;
     border-color: var(--secondary-color);
 }
-.speaker-section{
+
+.speaker-section {
     padding: 3rem 5% 6rem;
 }
-.speaker-grid{
+
+.speaker-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
+
 .speaker-info {
     padding: 1.5rem;
 }
-.speaker-info h3{
-    font-family:  var(--font-heading);
+
+.speaker-info h3 {
+    font-family: var(--font-heading);
     font-size: 1.2rem;
     color: var(--primary-color);
     margin-bottom: 0.3rem;
 }
-.specialty{
+
+.specialty {
     color: var(--secondary-color);
-    opacity: 0.9rem;
-    font-weight:500 ;
+    font-size: 0.9rem;
+    font-weight: 500;
     margin-bottom: 0.5rem;
 }
-.country{
+
+.country {
     font-size: 0.85rem;
     opacity: 0.8;
     display: flex;
@@ -705,61 +766,65 @@ FILTRES INTERVENANTS
     gap: 0.4rem;
 }
 
-
-
 /*
 ===================================
 PAGE CONTACT & FORMULAIRE
 ===================================
 */
-.contac-section {
+.contact-section {
     padding: 5rem 5%;
 }
-.contact-flex-container{
+
+.contact-flex-container {
     display: flex;
     gap: 3rem;
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
 .form-wrapper,
 .info-wrapper {
     flex: 1;
     min-width: 300px;
     background-color: var(--card-bg);
-    border: 1px solid
-    var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius);
+    padding: 2.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
+
 .form-wrapper h2,
-.info-wrapper h2{
+.info-wrapper h2 {
     font-family: var(--font-heading);
     font-size: 1.8rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
+
 .form-instruction {
     font-size: 0.9rem;
     opacity: 0.8;
     margin-bottom: 2rem;
 }
+
 .form-group {
     margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
+
 .form-group label {
     font-weight: 600;
     font-size: 0.95rem;
     color: var(--primary-color);
 }
+
 .form-group input,
 .form-group select,
 .form-group textarea {
     padding: 0.8rem 1rem;
-    border: 1px solid
-    var(--border-color);
+    border: 1px solid var(--border-color);
     background-color: var(--bg-color);
     color: var(--text-color);
     border-radius: var(--radius);
@@ -767,6 +832,7 @@ PAGE CONTACT & FORMULAIRE
     font-size: 1rem;
     transition: var(--transition);
 }
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -774,13 +840,15 @@ PAGE CONTACT & FORMULAIRE
     border-color: var(--secondary-color);
     box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
 }
+
 .error-message {
     font-size: 0.85rem;
     color: #ef4444;
     min-height: 1.2rem;
 }
+
 .form-success-banner {
-    background-color: rgb(34, 197, 94, 0.1);
+    background-color: rgba(34, 197, 94, 0.1);
     border: 1px solid #22c55e;
     color: #16a34a;
     padding: 1rem;
@@ -788,6 +856,7 @@ PAGE CONTACT & FORMULAIRE
     margin-bottom: 1.5rem;
     font-weight: 500;
 }
+
 .btn-submit {
     width: 100%;
     background-color: var(--secondary-color);
@@ -800,10 +869,12 @@ PAGE CONTACT & FORMULAIRE
     border-radius: var(--radius);
     transition: var(--transition);
 }
+
 .btn-submit:hover {
     opacity: 0.9;
-    transform: translate(-2px);
+    transform: translateY(-2px);
 }
+
 /*
 =============================
 INFORMATIONS DE CONTACT
@@ -813,16 +884,19 @@ INFORMATIONS DE CONTACT
     margin-bottom: 2rem;
     opacity: 0.9;
 }
+
 .info-details {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
+
 .info-item {
     display: flex;
     gap: 1rem;
     align-items: flex-start;
 }
+
 .info-icon {
     background-color: rgba(2, 132, 199, 0.1);
     color: var(--secondary-color);
@@ -835,16 +909,19 @@ INFORMATIONS DE CONTACT
     font-size: 1.2rem;
     flex-shrink: 0;
 }
+
 .info-item h3 {
     font-family: var(--font-heading);
     font-size: 1.05rem;
     color: var(--primary-color);
     margin-bottom: 0.2rem;
 }
+
 .info-item p {
-font-size: 0.95rem;
-opacity: 0.8;
+    font-size: 0.95rem;
+    opacity: 0.8;
 }
+
 /*
 =================================
 FAQ EN ACCORDEON PUR CSS
@@ -853,9 +930,9 @@ FAQ EN ACCORDEON PUR CSS
 .faq-section {
     padding: 5rem 5%;
     background-color: var(--card-bg);
-    border-top: 1px solid
-    var(--border-color);
+    border-top: 1px solid var(--border-color);
 }
+
 .faq-accordion {
     max-width: 800px;
     margin: 3rem auto 0;
@@ -863,16 +940,18 @@ FAQ EN ACCORDEON PUR CSS
     flex-direction: column;
     gap: 1rem;
 }
+
 .faq-item {
-    border: 1px solid
-    var(--border-color);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius);
     background-color: var(--bg-color);
     overflow: hidden;
 }
-.faq-chackbox {
+
+.faq-checkbox {
     display: none;
 }
+
 .faq-header {
     display: flex;
     justify-content: space-between;
@@ -883,27 +962,29 @@ FAQ EN ACCORDEON PUR CSS
     color: var(--primary-color);
     user-select: none;
 }
+
 .icon-arrow {
     transition: var(--transition);
 }
+
 .faq-body {
-    max-height:  0;
+    max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease,
-    padding 0.3s ease;
+    transition: max-height 0.3s ease, padding 0.3s ease;
     padding: 0 1.5rem;
     opacity: 0.8;
     font-size: 0.95rem;
 }
 
-.faq-checkbox.faq-checkbox:chacked
-~ .faq-header .icon-arrow{
+.faq-checkbox:checked ~ .faq-header .icon-arrow {
     transform: rotate(180deg);
 }
+
 .faq-checkbox:checked ~ .faq-body {
     max-height: 200px;
     padding: 0 1.5rem 1.2rem;
 }
+
 /*
 ===============================
 CARTE GOOGLE MAPS
@@ -913,15 +994,15 @@ CARTE GOOGLE MAPS
     width: 100%;
     line-height: 0;
 }
+
 .map-container iframe {
     width: 100%;
     height: 450px;
     border: none;
     filter: grayscale(20%);
-    transition: var(--transition);   
+    transition: var(--transition);
 }
-[data-theme="dark"] .map-container
-iframe {
-    filter: grayscale(50%) invert(90%)
-    hue-rotate(180deg);
+
+[data-theme="dark"] .map-container iframe {
+    filter: grayscale(50%) invert(90%) hue-rotate(180deg);
 }

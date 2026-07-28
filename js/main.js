@@ -1,102 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // ==========================================
-  // 1. MENU MOBILE (BURGER)
-  // ==========================================
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-
-  if (hamburger && navLinks) {
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburger.classList.toggle('toggle');
-    });
-  }
-
-  // ==========================================
-  // 2. MODE SOMBRE / MODE CLAIR (DARK/LIGHT MODE)
-  // ==========================================
-  // Note: Si votre CSS utilise [data-theme="dark"], 
-  // assurez-vous d'adapter la manipulation ci-dessous ou d'utiliser document.documentElement
-  const themeToggleBtn = document.querySelector('#theme-toggle');
-  const currentTheme = localStorage.getItem('theme');
-
-  if (currentTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      let theme = 'light';
-      if (document.documentElement.getAttribute('data-theme') === 'dark') {
-        document.documentElement.removeAttribute('data-theme');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        theme = 'dark';
-      }
-      localStorage.setItem('theme', theme);
-    });
-  }
-
-  // ==========================================
-  // 3. ANNÉE DYNAMIQUE (FOOTER)
-  // ==========================================
-  const yearSpan = document.getElementById('current-year');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
-
-  // ==========================================
-  // 4. BOUTON RETOUR EN HAUT (SCROLL-TOP)
-  // ==========================================
-  const scrollTopBtn = document.querySelector('.scroll-top');
-
-  if (scrollTopBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        scrollTopBtn.classList.add('show');
-      } else {
-        scrollTopBtn.classList.remove('show');
-      }
-    });
-
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  // ==========================================
-  // 5. ONGLETS DYNAMIQUES (PAGE PROGRAMME)
-  // ==========================================
-  const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabPanes = document.querySelectorAll('.tab-content'); // Correspond à .tab-content dans votre CSS
-
-  if (tabButtons.length > 0 && tabPanes.length > 0) {
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Retirer la classe active de tous les boutons et contenus
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        tabPanes.forEach(pane => pane.classList.remove('active'));
-
-        // Activer le bouton cliqué
-        button.classList.add('active');
-
-        // Récupérer la cible et afficher le contenu correspondant
-        const targetId = button.getAttribute('data-target');
-        const targetPane = document.getElementById(targetId);
-        if (targetPane) {
-          targetPane.classList.add('active');
-        }
-      });
-    });
-  }
-});
-
 /**
- * AfriConnect Summit - Script Principal (Vanilla JavaScript)
- * Description : Gestion de l'interactivité, du DOM, du stockage local et des animations.
+ * AfriConnect Summit - Script Principal
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -104,46 +7,49 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // 1. GESTION DU DARK / LIGHT MODE
   // ==========================================
-  const themeToggleBtn = document.querySelector('.theme-toggle');
+  const themeToggleBtn = document.getElementById('theme-toggle');
   const savedTheme = localStorage.getItem('theme');
 
   if (savedTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
-    if (themeToggleBtn) themeToggleBtn.setAttribute('aria-label', 'Activer le mode clair');
+    if (themeToggleBtn) {
+      const icon = themeToggleBtn.querySelector('i');
+      if (icon) icon.className = 'bi bi-sun-fill';
+      themeToggleBtn.setAttribute('aria-label', 'Activer le mode clair');
+    }
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+    if (themeToggleBtn) {
+      const icon = themeToggleBtn.querySelector('i');
+      if (icon) icon.className = 'bi bi-moon-fill';
+      themeToggleBtn.setAttribute('aria-label', 'Activer le mode sombre');
+    }
   }
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
+      const icon = themeToggleBtn.querySelector('i');
       
       if (currentTheme === 'dark') {
         document.documentElement.removeAttribute('data-theme');
         localStorage.setItem('theme', 'light');
+        if (icon) icon.className = 'bi bi-moon-fill';
         themeToggleBtn.setAttribute('aria-label', 'Activer le mode sombre');
       } else {
         document.documentElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
+        if (icon) icon.className = 'bi bi-sun-fill';
         themeToggleBtn.setAttribute('aria-label', 'Activer le mode clair');
       }
     });
   }
 
   // ==========================================
-  // 2. NAVBAR DYNAMIQUE & MENU HAMBURGER
+  // 2. MENU MOBILE (HAMBURGER)
   // ==========================================
-  const navbar = document.querySelector('.navbar');
-  const hamburger = document.querySelector('.hamburger-menu');
+  const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
-
-  window.addEventListener('scroll', () => {
-    if (navbar) {
-      if (window.scrollY > 80) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-    }
-  });
 
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
@@ -163,31 +69,49 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 3. ANIMATIONS AU SCROLL (IntersectionObserver)
+  // 3. ANIMATION DES STATISTIQUES (Counters)
   // ==========================================
-  const animatedElements = document.querySelectorAll('.fade-in, .slide-in, .zoom-in');
+  const statCounters = document.querySelectorAll('.counter');
+  
+  if (statCounters.length > 0) {
+    const runCounter = (counter) => {
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+      const speed = target / 50; 
 
-  if ('IntersectionObserver' in window && animatedElements.length > 0) {
-    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
-    const observerCallback = (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+      const updateCount = () => {
+        count += speed;
+        if (count < target) {
+          counter.textContent = Math.ceil(count);
+          setTimeout(updateCount, 30);
+        } else {
+          counter.textContent = target;
         }
-      });
+      };
+      updateCount();
     };
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    animatedElements.forEach(el => observer.observe(el));
-  } else {
-    animatedElements.forEach(el => el.classList.add('visible'));
+
+    if ('IntersectionObserver' in window) {
+      const statsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            runCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      statCounters.forEach(counter => statsObserver.observe(counter));
+    } else {
+      statCounters.forEach(counter => runCounter(counter));
+    }
   }
 
   // ==========================================
-  // 4. ONGLETS DU PROGRAMME (programme.html)
+  // 4. ONGLETS DU PROGRAMME (si présents)
   // ==========================================
   const tabButtons = document.querySelectorAll('.tab-btn');
-  const tabPanes = document.querySelectorAll('.tab-pane');
+  const tabPanes = document.querySelectorAll('.tab-content');
 
   if (tabButtons.length > 0 && tabPanes.length > 0) {
     tabButtons.forEach(button => {
@@ -204,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 5. FILTRAGE DES INTERVENANTS (intervenants.html)
+  // 5. FILTRAGE DES INTERVENANTS
   // ==========================================
   const filterButtons = document.querySelectorAll('.filter-btn');
   const speakerCards = document.querySelectorAll('.speaker-card');
@@ -232,76 +156,101 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 6. VALIDATION DU FORMULAIRE (contact.html)
+  // 6. VALIDATION DU FORMULAIRE DE CONTACT
   // ==========================================
   const contactForm = document.getElementById('registration-form');
 
   if (contactForm) {
     const fullNameInput = document.getElementById('fullname');
     const emailInput = document.getElementById('email');
-    const phoneInput = document.getElementById('phone');
-    const messageInput = document.getElementById('message');
-    const successMessageContainer = document.getElementById('form-success-message');
+    const phoneInput = document.getElementById('Phone');
+    const ticketInput = document.getElementById('ticket-type');
+    const countryInput = document.getElementById('country');
+    const messageInput = document.getElementById('motivation');
+    const successBanner = document.getElementById('success-banner');
 
     const setError = (input, message) => {
-      const formControl = input.parentElement;
-      formControl.className = 'form-control error';
-      const small = formControl.querySelector('small');
-      if (small) small.textContent = message;
+      if (!input) return;
+      const formGroup = input.closest('.form-group') || input.parentElement;
+      formGroup.classList.add('error');
+      formGroup.classList.remove('success');
+      const errorSpan = formGroup.querySelector('.error-message');
+      if (errorSpan) errorSpan.textContent = message;
     };
 
     const setSuccess = (input) => {
-      const formControl = input.parentElement;
-      formControl.className = 'form-control success';
+      if (!input) return;
+      const formGroup = input.closest('.form-group') || input.parentElement;
+      formGroup.classList.remove('error');
+      formGroup.classList.add('success');
+      const errorSpan = formGroup.querySelector('.error-message');
+      if (errorSpan) errorSpan.textContent = '';
     };
 
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       let isValid = true;
 
-      if (fullNameInput.value.trim() === '') {
+      if (fullNameInput && fullNameInput.value.trim() === '') {
         setError(fullNameInput, 'Le nom complet est obligatoire.');
         isValid = false;
-      } else {
+      } else if (fullNameInput) {
         setSuccess(fullNameInput);
       }
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(emailInput.value.trim())) {
+      if (emailInput && !emailRegex.test(emailInput.value.trim())) {
         setError(emailInput, 'Veuillez entrer une adresse email valide.');
         isValid = false;
-      } else {
+      } else if (emailInput) {
         setSuccess(emailInput);
       }
 
-      const phoneClean = phoneInput.value.replace(/\D/g, '');
-      if (phoneClean.length < 8) {
-        setError(phoneInput, 'Le numéro de téléphone doit comporter au moins 8 chiffres.');
-        isValid = false;
-      } else {
-        setSuccess(phoneInput);
+      if (phoneInput) {
+        const phoneClean = phoneInput.value.replace(/\D/g, '');
+        if (phoneClean.length < 8) {
+          setError(phoneInput, 'Le numéro de téléphone doit comporter au moins 8 chiffres.');
+          isValid = false;
+        } else {
+          setSuccess(phoneInput);
+        }
       }
 
-      if (messageInput.value.trim().length < 20) {
-        setError(messageInput, 'Le message ou la motivation doit contenir au moins 20 caractères.');
+      if (ticketInput && ticketInput.value === '') {
+        setError(ticketInput, 'Veuillez choisir un type de participation.');
         isValid = false;
-      } else {
-        setSuccess(messageInput);
+      } else if (ticketInput) {
+        setSuccess(ticketInput);
+      }
+
+      if (countryInput && countryInput.value === '') {
+        setError(countryInput, 'Veuillez choisir un pays d\'origine.');
+        isValid = false;
+      } else if (countryInput) {
+        setSuccess(countryInput);
+      }
+
+      if (messageInput) {
+        if (messageInput.value.trim().length < 20) {
+          setError(messageInput, 'La motivation doit contenir au moins 20 caractères.');
+          isValid = false;
+        } else {
+          setSuccess(messageInput);
+        }
       }
 
       if (isValid) {
-        if (successMessageContainer) {
-          successMessageContainer.textContent = 'Inscription envoyée avec succès ! Merci de participer à l’AfriConnect Summit.';
-          successMessageContainer.style.display = 'block';
+        if (successBanner) {
+          successBanner.style.display = 'block';
         }
         contactForm.reset();
-        document.querySelectorAll('.form-control').forEach(control => {
-          control.classList.remove('success');
+        document.querySelectorAll('.form-group').forEach(group => {
+          group.classList.remove('success');
         });
 
         setTimeout(() => {
-          if (successMessageContainer) {
-            successMessageContainer.style.display = 'none';
+          if (successBanner) {
+            successBanner.style.display = 'none';
           }
         }, 5000);
       }
@@ -309,7 +258,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 7. BOUTON RETOUR EN HAUT
+  // 7. COMPTE À REBOURS DE L'ÉVÉNEMENT
+  // ==========================================
+  const countdownBox = document.getElementById('countdown');
+  
+  if (countdownBox) {
+    const eventDate = new Date('October 15, 2026 09:00:00').getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const timeLeft = eventDate - now;
+
+      if (timeLeft > 0) {
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesElem = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+
+        if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+        if (minutesElem) minutesElem.textContent = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+      }
+    };
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  }
+
+  // ==========================================
+  // 8. BOUTON RETOUR EN HAUT
   // ==========================================
   const scrollTopBtn = document.querySelector('.scroll-top');
 
@@ -328,106 +311,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 8. ANNÉE DYNAMIQUE DANS LE FOOTER
+  // 9. ANNÉE DYNAMIQUE DANS LE FOOTER
   // ==========================================
-  const yearSpans = document.querySelectorAll('#current-year');
-  const currentYear = new Date().getFullYear();
-  yearSpans.forEach(span => {
-    span.textContent = currentYear;
-  });
-
-});
-
-/**
- * AfriConnect Summit - Fonctionnalités Avancées (Commit 9)
- * Description : Gestion des filtres de recherche en temps réel et des interactions dynamiques.
- */
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  // ==========================================
-  // 1. RECHERCHE EN TEMPS RÉEL (Intervenants ou Sessions)
-  // ==========================================
-  const searchInput = document.getElementById('search-input');
-  const searchItems = document.querySelectorAll('.searchable-item');
-
-  if (searchInput && searchItems.length > 0) {
-    searchInput.addEventListener('input', (e) => {
-      const searchTerm = e.target.value.toLowerCase().trim();
-
-      searchItems.forEach(item => {
-        const textContent = item.textContent.toLowerCase();
-        
-        if (textContent.includes(searchTerm)) {
-          item.style.display = 'block';
-          item.style.opacity = '1';
-        } else {
-          item.style.opacity = '0';
-          setTimeout(() => {
-            if (item.style.opacity === '0') {
-              item.style.display = 'none';
-            }
-          }, 300);
-        }
-      });
-    });
-  }
-
-  // ==========================================
-  // 2. GESTION DES FAVORIS (LocalStorage)
-  // ==========================================
-  const bookmarkButtons = document.querySelectorAll('.btn-bookmark');
-
-  if (bookmarkButtons.length > 0) {
-    bookmarkButtons.forEach(button => {
-      const itemId = button.getAttribute('data-id');
-      const savedBookmarks = JSON.parse(localStorage.getItem('afri_bookmarks')) || [];
-
-      // Restaurer l'état initial des favoris
-      if (savedBookmarks.includes(itemId)) {
-        button.classList.add('bookmarked');
-        button.textContent = '★ Enregistré';
-      }
-
-      button.addEventListener('click', () => {
-        let currentBookmarks = JSON.parse(localStorage.getItem('afri_bookmarks')) || [];
-        
-        if (currentBookmarks.includes(itemId)) {
-          // Supprimer des favoris
-          currentBookmarks = currentBookmarks.filter(id => id !== itemId);
-          button.classList.remove('bookmarked');
-          button.textContent = '☆ Favori';
-        } else {
-          // Ajouter aux favoris
-          currentBookmarks.push(itemId);
-          button.classList.add('bookmarked');
-          button.textContent = '★ Enregistré';
-        }
-
-        localStorage.setItem('afri_bookmarks', JSON.stringify(currentBookmarks));
-      });
-    });
-  }
-
-  // ==========================================
-  // 3. COMPTEUR DE CARACTÈRES (Formulaire de contact)
-  // ==========================================
-  const messageTextarea = document.getElementById('message');
-  const charCountDisplay = document.getElementById('char-count');
-
-  if (messageTextarea && charCountDisplay) {
-    const maxLength = messageTextarea.getAttribute('maxlength') || 300;
-
-    messageTextarea.addEventListener('input', () => {
-      const currentLength = messageTextarea.value.length;
-      charCountDisplay.textContent = `${currentLength} / ${maxLength} caractères`;
-
-      if (currentLength >= maxLength) {
-        charCountDisplay.style.color = 'var(--error-color, #e74c3c)';
-      } else {
-        charCountDisplay.style.color = 'inherit';
-      }
-    });
+  const yearSpan = document.getElementById('year');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
   }
 
 });

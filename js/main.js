@@ -337,3 +337,97 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+/**
+ * AfriConnect Summit - Fonctionnalités Avancées (Commit 9)
+ * Description : Gestion des filtres de recherche en temps réel et des interactions dynamiques.
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ==========================================
+  // 1. RECHERCHE EN TEMPS RÉEL (Intervenants ou Sessions)
+  // ==========================================
+  const searchInput = document.getElementById('search-input');
+  const searchItems = document.querySelectorAll('.searchable-item');
+
+  if (searchInput && searchItems.length > 0) {
+    searchInput.addEventListener('input', (e) => {
+      const searchTerm = e.target.value.toLowerCase().trim();
+
+      searchItems.forEach(item => {
+        const textContent = item.textContent.toLowerCase();
+        
+        if (textContent.includes(searchTerm)) {
+          item.style.display = 'block';
+          item.style.opacity = '1';
+        } else {
+          item.style.opacity = '0';
+          setTimeout(() => {
+            if (item.style.opacity === '0') {
+              item.style.display = 'none';
+            }
+          }, 300);
+        }
+      });
+    });
+  }
+
+  // ==========================================
+  // 2. GESTION DES FAVORIS (LocalStorage)
+  // ==========================================
+  const bookmarkButtons = document.querySelectorAll('.btn-bookmark');
+
+  if (bookmarkButtons.length > 0) {
+    bookmarkButtons.forEach(button => {
+      const itemId = button.getAttribute('data-id');
+      const savedBookmarks = JSON.parse(localStorage.getItem('afri_bookmarks')) || [];
+
+      // Restaurer l'état initial des favoris
+      if (savedBookmarks.includes(itemId)) {
+        button.classList.add('bookmarked');
+        button.textContent = '★ Enregistré';
+      }
+
+      button.addEventListener('click', () => {
+        let currentBookmarks = JSON.parse(localStorage.getItem('afri_bookmarks')) || [];
+        
+        if (currentBookmarks.includes(itemId)) {
+          // Supprimer des favoris
+          currentBookmarks = currentBookmarks.filter(id => id !== itemId);
+          button.classList.remove('bookmarked');
+          button.textContent = '☆ Favori';
+        } else {
+          // Ajouter aux favoris
+          currentBookmarks.push(itemId);
+          button.classList.add('bookmarked');
+          button.textContent = '★ Enregistré';
+        }
+
+        localStorage.setItem('afri_bookmarks', JSON.stringify(currentBookmarks));
+      });
+    });
+  }
+
+  // ==========================================
+  // 3. COMPTEUR DE CARACTÈRES (Formulaire de contact)
+  // ==========================================
+  const messageTextarea = document.getElementById('message');
+  const charCountDisplay = document.getElementById('char-count');
+
+  if (messageTextarea && charCountDisplay) {
+    const maxLength = messageTextarea.getAttribute('maxlength') || 300;
+
+    messageTextarea.addEventListener('input', () => {
+      const currentLength = messageTextarea.value.length;
+      charCountDisplay.textContent = `${currentLength} / ${maxLength} caractères`;
+
+      if (currentLength >= maxLength) {
+        charCountDisplay.style.color = 'var(--error-color, #e74c3c)';
+      } else {
+        charCountDisplay.style.color = 'inherit';
+      }
+    });
+  }
+
+});
